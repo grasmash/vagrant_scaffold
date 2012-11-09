@@ -1,0 +1,27 @@
+# file managed by Puppet
+NameVirtualHost *:80
+NameVirtualHost *:443
+<VirtualHost *:80>
+  DocumentRoot /vagrant_webroot
+  ServerName localhost
+
+  <Directory />
+    Options FollowSymLinks
+    AllowOverride None
+  </Directory>
+
+  <Directory /vagrant/public>
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride None
+    Order allow,deny
+    allow from all
+  </Directory>
+
+  ServerSignature Off
+</VirtualHost>
+
+<VirtualHost *:443>
+        DocumentRoot /vagrant_webroot
+        SSLEngine on
+        SSLCertificateFile /etc/apache2/ssl/apache.pem
+</VirtualHost>
