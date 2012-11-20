@@ -9,6 +9,11 @@ Vagrant::Config.run do |config|
   # Every Vagrant virtual environment requires a box to build off of.
 	config.vm.box = "lucid32"
   
+  # Specify RAM
+  config.vm.customize ["modifyvm", :id, "--memory", 2048]
+
+  # Specify CPUs
+  config.vm.customize ["modifyvm", :id, "--cpus", 2]
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.

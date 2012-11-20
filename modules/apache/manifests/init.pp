@@ -19,7 +19,7 @@ class apache {
     ensure  => present,
     content => template("apache/vhost.erb"),
     require => Package["apache2"],
-    notify  => Exec["apache-graceful"],
+    notify  => Exec["apache-graceful"], 
     mode    => 644,
   }
 
